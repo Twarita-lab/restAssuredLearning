@@ -1,7 +1,7 @@
 package twarita.restAssured.tests;
 
-import twarita.restAssured.files.GooglePlaces;
 
+import twarita.restAssured.files.Payload;
 
 import static io.restassured.RestAssured.*;
 
@@ -19,7 +19,7 @@ public class POST_GooglePlaces {
 		
 		//GooglePlaces gPF = new GooglePlaces();
 		
-		Response postGoogleAddRequest = given().log().all().queryParam("key", "qaclick121").body(GooglePlaces.addGooglePlacesBody()).
+		Response postGoogleAddRequest = given().log().all().queryParam("key", "qaclick121").body(Payload.addGooglePlacesBody()).
 				when().post("maps/api/place/add/json");
 
 		//Validations

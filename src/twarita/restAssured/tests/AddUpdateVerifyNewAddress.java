@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import twarita.restAssured.files.GooglePlaces;
+import twarita.restAssured.files.Payload;
 import twarita.restAssured.files.ReusableFiles;
 
 public class AddUpdateVerifyNewAddress {
@@ -19,7 +19,7 @@ public class AddUpdateVerifyNewAddress {
 		String newAddress = "80 winter walk, USA";
 
 		// Add place
-		String addPlaceResponseString = given().queryParam("key", keyValue).body(GooglePlaces.addGooglePlacesBody())
+		String addPlaceResponseString = given().queryParam("key", keyValue).body(Payload.addGooglePlacesBody())
 				.when().post("/maps/api/place/add/json").then().assertThat().statusCode(200).extract().response()
 				.asPrettyString();
 
